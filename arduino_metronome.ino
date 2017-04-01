@@ -37,7 +37,8 @@ void setup() {
   Serial.println("Start...");
   
   // initialize LEDs
-  pinMode(tempoLedPin, OUTPUT);
+  pinMode(tempoLedPinUP, OUTPUT);
+  pinMode(tempoLedPinDOWN, OUTPUT);
   pinMode(rhythmLedPin, OUTPUT);
   pinMode(accentLedPin, OUTPUT);
  
@@ -54,17 +55,17 @@ void setup() {
 
 void handle_tempoUp(State state) {
   if (state.tempoUp) {
-    digitalWrite(tempoLedPin, HIGH);
+    digitalWrite(tempoLedPinUP, HIGH);
   } else {
-    digitalWrite(tempoLedPin, LOW);
+    digitalWrite(tempoLedPinUP, LOW);
   }
 }
 
 void handle_tempoDown(State state) {
   if (state.tempoDown) {
-    digitalWrite(tempoLedPin, HIGH);
+    digitalWrite(tempoLedPinDOWN, HIGH);
   } else {
-    digitalWrite(tempoLedPin, LOW);
+    digitalWrite(tempoLedPinDOWN, LOW);
   }
 }
   
