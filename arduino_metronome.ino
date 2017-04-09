@@ -61,7 +61,7 @@ void handle_tempoUp(State* state) {
     state->tempoUp = 0;
 
     // noveljuk a tempot
-    if (tempo <= 200) {
+    if (tempo < 200) {
       tempo += 5;
       Serial.print("tempo is ");
       Serial.println(tempo);
@@ -84,7 +84,7 @@ void handle_tempoDown(State* state) {
     state->tempoDown = 0;
 
     // csokkentjuk a tempot
-    if (tempo >= 40) {
+    if (tempo > 40) {
       tempo -= 5;
       Serial.print("tempo is ");
       Serial.println(tempo);
