@@ -48,31 +48,31 @@ void setup() {
   state.prell_delay = 0;
 }
 
-void handle_tempoUp(State state) {
+void handle_tempoUp(State* state) {
   // ha lenyomtak a gombot, akkor felvillantjuk a LED-et
-  if (state.tempoUp) {
+  if (state->tempoUp) {
 	Serial.println("tempo up pressed");
     digitalWrite(tempoLedPinUp, HIGH);
 	delay(10);
-	state.prell_delay += 10;
+	state->prell_delay += 10;
 	digitalWrite(tempoLedPinUp, LOW);
 	
 	// visszaallitjuk az allapotot
-	state.tempoUp = 0;
+	state->tempoUp = 0;
   }
 }
 
-void handle_tempoDown(State state) {
+void handle_tempoDown(State* state) {
   // ha lenyomtak a gombot, akkor felvillantjuk a LED-et
-  if (state.tempoDown) {
+  if (state->tempoDown) {
 	Serial.println("tempo up pressed");
     digitalWrite(tempoLedPinDown, HIGH);
 	delay(10);
-	state.prell_delay += 10;
+	state->prell_delay += 10;
     digitalWrite(tempoLedPinDown, LOW);
 	
 	// visszaallitjuk az allapotot
-	state.tempoDown = 0;
+	state->tempoDown = 0;
   }
 }
   
@@ -110,14 +110,14 @@ void handle_enabled(State state) {
   }
  
 }
- 
+
 void loop() {
 
   state.prell_delay = 0;
-	get_state(&state);
+  get_state(&state);
 
-  handle_tempoUp(state);
-  handle_tempoDown(state);
+  handle_tempoUp(&state);
+  handle_tempoDown(&state);
   handle_enabled(state);
 
 }
