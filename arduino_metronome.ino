@@ -7,18 +7,13 @@
  
 #define NOTE_HIGH  392
 #define NOTE_LOW  196
- 
+
 #define NOTE_DURATION 50
- 
 #define TEMPO 120L
+  
 #define MINUTE 60L * 1000
 #define SECOND 1000
  
-#define FEL         2
-#define NEGYED      4
-#define NYOLCAD     8
-#define TIZENHATOD 16
-
 const int numPatterns = 4;
 int pattern[] = {
   1, 0, 0, 0
@@ -37,8 +32,8 @@ void setup() {
   Serial.println("Start...");
   
   // initialize LEDs
-  pinMode(tempoLedPinUP, OUTPUT);
-  pinMode(tempoLedPinDOWN, OUTPUT);
+  pinMode(tempoLedPinUp, OUTPUT);
+  pinMode(tempoLedPinDown, OUTPUT);
   pinMode(rhythmLedPin, OUTPUT);
   pinMode(accentLedPin, OUTPUT);
  
@@ -54,18 +49,30 @@ void setup() {
 }
 
 void handle_tempoUp(State state) {
+  // ha lenyomtak a gombot, akkor felvillantjuk a LED-et
   if (state.tempoUp) {
-    digitalWrite(tempoLedPinUP, HIGH);
-  } else {
-    digitalWrite(tempoLedPinUP, LOW);
+	Serial.println("tempo up pressed");
+    digitalWrite(tempoLedPinUp, HIGH);
+	delay(10);
+	state.prell_delay += 10;
+	digitalWrite(tempoLedPinUp, LOW);
+	
+	// visszaallitjuk az allapotot
+	state.tempoUp = 0;
   }
 }
 
 void handle_tempoDown(State state) {
+  // ha lenyomtak a gombot, akkor felvillantjuk a LED-et
   if (state.tempoDown) {
-    digitalWrite(tempoLedPinDOWN, HIGH);
-  } else {
-    digitalWrite(tempoLedPinDOWN, LOW);
+	Serial.println("tempo up pressed");
+    digitalWrite(tempoLedPinDown, HIGH);
+	delay(10);
+	state.prell_delay += 10;
+    digitalWrite(tempoLedPinDown, LOW);
+	
+	// visszaallitjuk az allapotot
+	state.tempoDown = 0;
   }
 }
   
@@ -93,7 +100,6 @@ void handle_enabled(State state) {
       
       // to distinguish the notes
       long pauseBetweenNotes = fullNoteDuration - NOTE_DURATION;
- 
       delay(pauseBetweenNotes);
  
       // stop the tone playing:
