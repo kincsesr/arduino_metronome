@@ -1,10 +1,10 @@
 # arduino_metronome
 a simple metronome for an arduino board
 
-Board type:
+## Board type:
 - Arduino Uno R3
 
-Pins:
+## Pins:
 - Pin 3: press button, enable/disable speaker
 - Pin 4: press button, increse tempo
 - Pin 5: press button, decrease tempo
@@ -16,3 +16,8 @@ Pins:
 
 - Pin 11: (green) LED, shows rythm 
 - Pin 12: (red) LED, shows first beat
+
+## Serial logging
+Serial logging should be commented out as it uses
+too much cycles and makes the metronome rather
+inaccurate.
