@@ -4,6 +4,9 @@ a simple metronome for an arduino board
 ## Board type:
 - Arduino Uno R3
 
+## Board layout
+See [board layout](board_layout.jpg)
+
 ## Pins:
 - Pin 3: press button, enable/disable speaker
 - Pin 4: press button, increse tempo
@@ -21,3 +24,4 @@ a simple metronome for an arduino board
 Serial logging should be commented out as it uses
 too much cycles and makes the metronome rather
 inaccurate.
+
