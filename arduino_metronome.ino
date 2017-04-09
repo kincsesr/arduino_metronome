@@ -65,7 +65,7 @@ void handle_tempoUp(State* state) {
 void handle_tempoDown(State* state) {
   // ha lenyomtak a gombot, akkor felvillantjuk a LED-et
   if (state->tempoDown) {
-	Serial.println("tempo up pressed");
+	Serial.println("tempo down pressed");
     digitalWrite(tempoLedPinDown, HIGH);
 	delay(10);
 	state->prell_delay += 10;
