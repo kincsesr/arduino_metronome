@@ -11,8 +11,8 @@
 #define NOTE_DURATION 40
 #define TEMPO 120L
 
-#define MINUTE 60L * 1000
 #define SECOND 1000
+#define MINUTE 60L * SECOND
 
 const int numPatterns = 4;
 int pattern[] = {
