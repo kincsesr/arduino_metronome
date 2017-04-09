@@ -8,7 +8,7 @@
 #define NOTE_HIGH  392
 #define NOTE_LOW  196
 
-#define NOTE_DURATION 50
+#define NOTE_DURATION 40
 #define TEMPO 120L
   
 #define MINUTE 60L * 1000
